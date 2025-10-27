@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <!-- Import Google Fonts: Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Material Design 3 Dark Mode Color Palette (Blue Theme) */
+        :root {
+            /* Primary */
+            --md-sys-color-primary: #a8c7ff;
+            --md-sys-color-on-primary: #00325b;
+            --md-sys-color-primary-container: #004880;
+            --md-sys-color-on-primary-container: #d3e4ff;
+            --md-sys-color-primary-rgb: 168, 199, 255; /* For RGBA overlays */
+
+            /* Surface & Background */
+            --md-sys-color-background: #1a1c1e;
+            --md-sys-color-on-background: #e2e2e6;
+            --md-sys-color-surface: #1a1c1e; /* Can be same as background */
+            --md-sys-color-on-surface: #e2e2e6;
+            --md-sys-color-on-surface-variant: #c2c6cf;
+            
+            /* Surface Containers */
+            --md-sys-color-surface-container-low: #1f2428; /* Footer */
+            --md-sys-color-surface-container: #22262a; /* Summary Card */
+            --md-sys-color-surface-container-high: #2d3135; /* Project Cards */
+
+            /* Outline */
+            --md-sys-color-outline: #8d9199;
+            --md-sys-color-outline-variant: #42474e;
+
+            /* Shadows (MD3 uses subtle, layered shadows) */
+            --md-sys-elevation-level-1: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+            --md-sys-elevation-level-2: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+        }
+
+        body {
+            /* Use Roboto as the primary font */
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--md-sys-color-on-background);
+            background-color: var(--md-sys-color-background);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Header Section */
+        header {
+            /* MD3 top-app-bar style */
+            background: var(--md-sys-color-surface);
+            color: var(--md-sys-color-on-surface);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            box-shadow: none; /* Removed gradient and shadow */
+        }
+
+        header h1 {
+            font-size: 2.5rem; /* Headline Large */
+            font-weight: 700;
+            margin-bottom: 0.5rem; /* Adjusted margin */
+            color: var(--md-sys-color-primary); /* Use primary color for key titles */
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .header-subtitle { /* Added style */
+            font-size: 1.5rem; /* Title Large */
+            font-weight: 400;
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 0.25rem; /* Adjust spacing */
+            animation: fadeInDown 0.8s ease 0.2s; /* Staggered animation */
+            animation-fill-mode: backwards;
+        }
+
+        .header-email { /* Added */
+            font-size: 1rem; /* Body Large */
+            font-weight: 400;
+            color: var(--md-sys-color-on-surface-variant);
+            text-decoration: none;
+            margin-bottom: 1rem; /* Spacing before main description */
+            display: inline-block; /* To respect margin */
+            transition: color 0.2s ease;
+            animation: fadeInDown 0.8s ease 0.4s; /* Staggered animation */
+            animation-fill-mode: backwards;
+        }
+
+        .header-email:hover { /* Added */
+            color: var(--md-sys-color-primary);
+            text-decoration: underline;
+        }
+
+        header p {
+            font-size: 1.125rem; /* Title Medium */
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--md-sys-color-on-surface-variant); /* Medium emphasis text */
+            animation: fadeInUp 0.8s ease;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Professional Summary Section (MD3 "Filled Card" style) */
+        .summary-section {
+            background: var(--md-sys-color-surface-container);
+            border-radius: 16px; /* Increased border-radius */
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--md-sys-elevation-level-1);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-left: none; /* Removed old accent border */
+            animation: fadeIn 1s ease;
+        }
+
+        .summary-section h2 {
+            color: var(--md-sys-color-on-surface);
+            font-size: 1.875rem; /* Title Large */
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .summary-section p {
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: 1.125rem; /* Body Large */
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        .projects-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .projects-header h2 {
+            font-size: 2.25rem; /* Headline Medium */
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .projects-header p {
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: 1.125rem;
+        }
+
+        /* Project Grid */
+        .projects-grid {
+            display: flex; /* Changed from grid */
+            flex-direction: column; /* Added */
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Project Card (MD3 "Elevated Card" style) */
+        .project-card {
+            background: var(--md-sys-color-surface-container-high);
+            border-radius: 16px; /* Increased border-radius */
+            padding: 2rem;
+            box-shadow: var(--md-sys-elevation-level-1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--md-sys-color-outline-variant);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease backwards;
+
+            /* MD3 Surface Tint for elevation */
+            background-image: linear-gradient(rgba(var(--md-sys-color-primary-rgb), 0.08), rgba(var(--md-sys-color-primary-rgb), 0.08));
+        }
+
+        /* Removed ::before top border animation */
+        .project-card::before {
+            display: none;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--md-sys-elevation-level-2);
+            border-color: var(--md-sys-color-outline);
+            /* Increase surface tint on hover */
+            background-image: linear-gradient(rgba(var(--md-sys-color-primary-rgb), 0.12), rgba(var(--md-sys-color-primary-rgb), 0.12));
+        }
+
+        .project-card h3 {
+            color: var(--md-sys-color-on-surface);
+            font-size: 1.5rem; /* Title Medium */
+            margin-bottom: 1rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .project-card p {
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: 1rem; /* Body Medium */
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Project Tag (MD3 "Chip" style) */
+        .project-tag {
+            display: inline-flex; /* Changed from inline-block */
+            align-items: center; /* Added */
+            gap: 0.5rem; /* Added */
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+            padding: 0.375rem 0.875rem;
+            border-radius: 8px; /* MD3 Chip radius */
+            font-size: 0.875rem; /* Label Large */
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease; /* Added */
+        }
+
+        .project-tag:hover { /* Added */
+            transform: scale(1.05);
+            background-color: var(--md-sys-color-primary); /* Use primary color on hover */
+            color: var(--md-sys-color-on-primary); /* Use on-primary color on hover */
+        }
+
+        .tag-icon { /* Added */
+            width: 14px;
+            height: 14px;
+            stroke-width: 2.5; /* Make icon lines a bit thicker */
+        }
+
+        /* Project Link (MD3 "Text Button" style) - REMOVED */
+        /*
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 1rem;
+            transition: all 0.2s ease;
+            padding: 0.5rem 0.75rem; /* Add padding for better touch target */
+            border-radius: 20px; /* Pill shape */
+            margin-left: -0.75rem; /* Align with card padding */
+        }
+
+        .project-link:hover {
+            color: var(--md-sys-color-primary);
+            background-color: rgba(var(--md-sys-color-primary-rgb), 0.1); /* Hover state overlay */
+            transform: none; /* Remove old transform */
+        }
+
+        .project-link svg {
+            margin-left: 0.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .project-link:hover svg {
+            transform: translateX(4px);
+        }
+        */
+
+        /* Featured Project Highlight */
+        .project-card.featured {
+            /* grid-column: span 2; */ /* Removed */
+            background-color: var(--md-sys-color-surface-container-high);
+            /* Featured cards get a stronger surface tint */
+            background-image: linear-gradient(rgba(var(--md-sys-color-primary-rgb), 0.10), rgba(var(--md-sys-color-primary-rgb), 0.10));
+        }
+
+        /* Footer */
+        footer {
+            background: var(--md-sys-color-surface-container-low);
+            color: var(--md-sys-color-on-surface-variant);
+            text-align: center;
+            padding: 2.5rem 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        footer p {
+            font-size: 0.875rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stagger animation delays (unchanged) */
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+        .project-card:nth-child(7) { animation-delay: 0.1s; }
+        .project-card:nth-child(8) { animation-delay: 0.2s; }
+        .project-card:nth-child(9) { animation-delay: 0.3s; }
+        .project-card:nth-child(10) { animation-delay: 0.4s; }
+        .project-card:nth-child(11) { animation-delay: 0.5s; }
+        .project-card:nth-child(12) { animation-delay: 0.6s; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .project-card.featured {
+                grid-column: span 1;
+            }
+
+            .summary-section {
+                padding: 1.5rem;
+                border-radius: 12px; /* Slightly smaller radius on mobile */
+            }
+
+            .summary-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .projects-header h2 {
+                font-size: 1.875rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .project-card {
+                border-radius: 12px; /* Slightly smaller radius on mobile */
+            }
+        }
+
+        @media (min-width: 1024px) { /* Added responsive grid for large screens */
+            .projects-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .project-card.featured {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 3rem 1.5rem;
+            }
+
+            header h1 {
+                font-size: 1.75rem;
+            }
+
+            .project-card {
+                padding: 1.5rem;
+            }
+
+            .project-card h3 {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Professional Portfolio</h1>
+        <h2 class="header-subtitle">Irfan Kheiri</h2> <!-- Added -->
+        <a href="mailto:kheiri@gmail.com" class="header-email">kheiri@gmail.com</a> <!-- New -->
+        <p>Innovative Solutions in AI, Healthcare, Education & Technology</p>
+    </header>
+
+    <div class="container">
+        <!-- Professional Summary Section - UPDATED -->
+        <section class="summary-section loading">
+            <h2>About Me</h2>
+            <p>
+                Irfan Kheiri is a solutions architect and technology leader who operates at the intersection of education, 
+                simulation, and AI. As Chief Solutions Architect and CTO at SoulTek Studios, he leads the development of 
+                intelligent training environments that combine medical accuracy with interactive design—most notably 
+                <strong>SimNurse</strong>, an AI-powered clinical simulation platform built to enhance decision-making 
+                for healthcare professionals through immersive, scenario-based learning.
+            </p>
+            <p>
+                With a background spanning decades in media and technology, Irfan brings clarity to complexity. 
+                His work ranges from building ontology-driven frameworks for pediatric care to developing ECG waveform 
+                generators in Godot. Each solution reflects a balance of technical depth, user-centered design, 
+                and real-world application.
+            </p>
+            <p>
+                In addition to his leadership at SoulTek, Irfan teaches Game Design in the UX/UI stream at Indus Valley 
+                School, mentoring students in the thoughtful design of interactive systems. His interests also extend 
+                into applied AI across sectors—from hyperspectral imaging in mineral exploration to educational games 
+                that distill complex financial concepts into engaging, structured learning.
+            </p>
+            <p>
+                Across every initiative, Irfan combines strategic insight, hands-on execution, and a commitment to 
+                building tools that educate, empower, and endure.
+            </p>
+            <!-- The original placeholder text and edit note have been replaced by the content above. -->
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-header">
+            <h2>Featured Projects</h2>
+            <p>A selection of my most impactful work across various domains</p>
+        </section>
+
+        <div class="projects-grid">
+            <!-- Featured Project: Gamified Learning Systems -->
+            <article class="project-card featured loading">
+                <h3>Gamified Learning Systems</h3>
+                <p>
+                    An essential objective in my work is the development of learning systems that apply gamification and 
+                    simulation to enhance engagement and knowledge retention. The focus is on fostering intrinsic 
+                    motivation—mastery, autonomy, and purpose—rather than dependence on external rewards or competition. 
+                    Each game mechanic is intentionally designed to align with the learning content and directly reinforce 
+                    target outcomes through meaningful interaction.
+                </p>
+                <div>
+                    <!-- Added SVG icons to tags -->
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20v2H6.5A2.5 2.5 0 0 1 4 19.5zM4 5A2.5 2.5 0 0 1 6.5 3H20v2H6.5A2.5 2.5 0 0 1 4 5zM4 12A2.5 2.5 0 0 1 6.5 9.5H20v2H6.5A2.5 2.5 0 0 1 4 12z"/></svg>
+                        Education
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M6 12h4m-2-2v4M17 12h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+                        Gamification
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Learning Design
+                    </span>
+                </div>
+                <!-- <a href="#project-gamified-learning" class="project-link"> ... </a> -->
+            </article>
+
+            <!-- SimNurse -->
+            <article class="project-card loading">
+                <h3>SimNurse: Emergency Care Training Simulator</h3>
+                <p>
+                    Developed an interactive simulation system for emergency medical training built in Godot Engine with a 
+                    modular, state-machine architecture. SimNurse enables healthcare professionals to practice critical care 
+                    management in bradycardia, tachycardia, ACLS, and PALS scenarios through dynamic, scenario-based learning.
+                </p>
+                <div>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 5v14M5 12h14"/></svg>
+                        Healthcare
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M6 12h4m-2-2v4M17 12h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+                        Simulation
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Godot Engine
+                    </span>
+                </div>
+                <!-- <a href="#project-simnurse" class="project-link"> ... </a> -->
+            </article>
+
+            <!-- TFAL -->
+            <article class="project-card loading">
+                <h3>TFAL: Compliance Investigation Simulator</h3>
+                <p>
+                    Developed a gamified training prototype for bank compliance officers simulating investigative workflows 
+                    and decision logic. The system reproduces real-world investigative tools—console interfaces, evidence 
+                    boards, and document analysis modules—within a branching scenario structure.
+                </p>
+                <div>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        Finance
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Compliance
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Training
+                    </span>
+                </div>
+                <!-- <a href="#project-tfal" class="project-link"> ... </a> -->
+            </article>
+
+            <!-- Ethical Finance -->
+            <article class="project-card loading">
+                <h3>Ethical Finance Training through Interactive Gameplay</h3>
+                <p>
+                    Designing an interactive web-based simulation that trains professionals in Islamic banking and fintech 
+                    to identify and resolve ethically complex financial scenarios. The game centers on recognizing exploitative 
+                    practices such as Riba (usury), guiding players through branching decision paths with real-time feedback.
+                </p>
+                <div>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        Islamic Finance
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Ethics
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M6 12h4m-2-2v4M17 12h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+                        Gamification
+                    </span>
+                </div>
+                <!-- <a href="#project-ethical-finance" class="project-link"> ... </a> -->
+            </article>
+
+            <!-- Ziara AI -->
+            <article class="project-card loading">
+                <h3>Ziara AI Travel Assistant</h3>
+                <p>
+                    Developing an LLM-powered multilingual chatbot for Ziara.co to manage the full Umrah and Hajj booking 
+                    process in English, Arabic, Urdu, and Hindi. The assistant handles hotel selection, transport, visa support, 
+                    and mid-conversation changes through natural dialogue.
+                </p>
+                <div>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v0A2.5 2.5 0 0 1 9.5 7h0A2.5 2.5 0 0 1 7 4.5v0A2.5 2.5 0 0 1 9.5 2m0 5A2.5 2.5 0 0 1 12 9.5v0A2.5 2.5 0 0 1 9.5 12h0A2.5 2.5 0 0 1 7 9.5v0A2.5 2.5 0 0 1 9.5 7m5 0A2.5 2.5 0 0 1 17 9.5v0A2.5 2.5 0 0 1 14.5 12h0A2.5 2.5 0 0 1 12 9.5v0A2.5 2.5 0 0 1 14.5 7m0-5A2.5 2.5 0 0 1 17 4.5v0A2.5 2.5 0 0 1 14.5 7h0A2.5 2.5 0 0 1 12 4.5v0A2.5 2.5 0 0 1 14.5 2M8 17a2.5 2.5 0 0 1 2.5 2.5v0A2.5 2.5 0 0 1 8 22h0a2.5 2.5 0 0 1-2.5-2.5v0A2.5 2.5 0 0 1 8 17m8 0a2.5 2.5 0 0 1 2.5 2.5v0A2.5 2.5 0 0 1 16 22h0a2.5 2.5 0 0 1-2.5-2.5v0A2.5 2.5 0 0 1 16 17m-5-2.5A2.5 2.5 0 0 1 13.5 17v0A2.5 2.5 0 0 1 11 19.5h0A2.5 2.5 0 0 1 8.5 17v0A2.5 2.5 0 0 1 11 14.5m-5 0A2.5 2.5 0 0 1 8.5 17v0A2.5 2.5 0 0 1 6 19.5h0A2.5 2.5 0 0 1 3.5 17v0A2.5 2.5 0 0 1 6 14.5m12 0A2.5 2.5 0 0 1 20.5 17v0A2.5 2.5 0 0 1 18 19.5h0A2.5 2.5 0 0 1 15.5 17v0A2.5 2.5 0 0 1 18 14.5z"/></svg>
+                        AI
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Chatbot
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Multilingual
+                    </span>
+                </div>
+                <!-- <a href="#project-ziara" class="project-link"> ... </a> -->
+            </article>
+
+            <!-- IGI MedClaim -->
+            <article class="project-card loading">
+                <h3>IGI MedClaim Automation Prototype</h3>
+                <p>
+                    Designed and developed a prototype claims-processing platform for IGI that automates healthcare document 
+                    analysis, clinical validation, and policy compliance checks. The system uses large language models to 
+                    extract structured data from unstandardized medical and billing documents.
+                </p>
+                <div>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 5v14M5 12h14"/></svg>
+                        Healthcare
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v0A2.5 2.5 0 0 1 9.5 7h0A2.5 2.5 0 0 1 7 4.5v0A2.5 2.5 0 0 1 9.5 2m0 5A2.5 2.5 0 0 1 12 9.5v0A2.5 2.5 0 0 1 9.5 12h0A2.5 2.5 0 0 1 7 9.5v0A2.5 2.5 0 0 1 9.5 7m5 0A2.5 2.5 0 0 1 17 9.5v0A2.5 2.5 0 0 1 14.5 12h0A2.5 2.5 0 0 1 12 9.5v0A2.5 2.5 0 0 1 14.5 7m0-5A2.5 2.5 0 0 1 17 4.5v0A2.5 2.5 0 0 1 14.5 7h0A2.5 2.5 0 0 1 12 4.5v0A2.5 2.5 0 0 1 14.5 2M8 17a2.5 2.5 0 0 1 2.5 2.5v0A2.5 2.5 0 0 1 8 22h0a2.5 2.5 0 0 1-2.5-2.5v0A2.5 2.5 0 0 1 8 17m8 0a2.5 2.5 0 0 1 2.5 2.5v0A2.5 2.5 0 0 1 16 22h0a2.5 2.5 0 0 1-2.5-2.5v0A2.5 2.5 0 0 1 16 17m-5-2.5A2.5 2.5 0 0 1 13.5 17v0A2.5 2.5 0 0 1 11 19.5h0A2.5 2.5 0 0 1 8.5 17v0A2.5 2.5 0 0 1 11 14.5m-5 0A2.5 2.5 0 0 1 8.5 17v0A2.5 2.5 0 0 1 6 19.5h0A2.5 2.5 0 0 1 3.5 17v0A2.5 2.5 0 0 1 6 14.5m12 0A2.5 2.5 0 0 1 20.5 17v0A2.5 2.5 0 0 1 18 19.5h0A2.5 2.5 0 0 1 15.5 17v0A2.5 2.5 0 0 1 18 14.5z"/></svg>
+                        AI
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Automation
+                    </span>
+                </div>
+                <!-- <a href="#project-igi-medclaim" class="project-link"> ... </a> -->
+            </article>
+
+            <!-- MiningTech -->
+            <article class="project-card loading">
+                <h3>MiningTech: Geospatial Analytics for Mineral Discovery</h3>
+                <p>
+                    Conducting research on AI-powered geospatial analytics for mineral exploration, focusing on the integration 
+                    of hyperspectral imaging with magnetic and LiDAR datasets to improve subsurface inference. The work explores 
+                    the use of deep learning models to identify spectral and structural patterns.
+                </p>
+                <div>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v0A2.5 2.5 0 0 1 9.5 7h0A2.5 2.5 0 0 1 7 4.5v0A2.5 2.5 0 0 1 9.5 2m0 5A2.5 2.5 0 0 1 12 9.5v0A2.5 2.5 0 0 1 9.5 12h0A2.5 2.5 0 0 1 7 9.5v0A2.5 2.5 0 0 1 9.5 7m5 0A2.5 2.5 0 0 1 17 9.5v0A2.5 2.5 0 0 1 14.5 12h0A2.5 2.5 0 0 1 12 9.5v0A2.5 2.5 0 0 1 14.5 7m0-5A2.5 2.5 0 0 1 17 4.5v0A2.5 2.5 0 0 1 14.5 7h0A2.5 2.5 0 0 1 12 4.5v0A2.5 2.5 0 0 1 14.5 2M8 17a2.5 2.5 0 0 1 2.5 2.5v0A2.5 2.5 0 0 1 8 22h0a2.5 2.5 0 0 1-2.5-2.5v0A2.5 2.5 0 0 1 8 17m8 0a2.5 2.5 0 0 1 2.5 2.5v0A2.5 2.5 0 0 1 16 22h0a2.5 2.5 0 0 1-2.5-2.5v0A2.5 2.5 0 0 1 16 17m-5-2.5A2.5 2.5 0 0 1 13.5 17v0A2.5 2.5 0 0 1 11 19.5h0A2.5 2.5 0 0 1 8.5 17v0A2.5 2.5 0 0 1 11 14.5m-5 0A2.5 2.5 0 0 1 8.5 17v0A2.5 2.5 0 0 1 6 19.5h0A2.5 2.5 0 0 1 3.5 17v0A2.5 2.5 0 0 1 6 14.5m12 0A2.5 2.5 0 0 1 20.5 17v0A2.5 2.5 0 0 1 18 19.5h0A2.5 2.5 0 0 1 15.5 17v0A2.5 2.5 0 0 1 18 14.5z"/></svg>
+                        AI
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Geospatial
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Research
+                    </span>
+                </div>
+                <!-- <a href="#project-miningtech" class="project-link"> ... </a> -->
+            </article>
+
+            <!-- Durbeen -->
+            <article class="project-card loading">
+                <h3>Durbeen: AI-Facilitated Lesson-Plan Evaluation System</h3>
+                <p>
+                    Developed an AI-based evaluation system tailored for Durbeen's teacher-education programs, enabling 
+                    automated analysis of student-designed lesson plans using a structured 15-criterion rubric. The platform 
+                    utilises large-language-model capabilities to assess elements like prior knowledge, SMART objectives, and more.
+                </p>
+                <div>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20v2H6.5A2.5 2.5 0 0 1 4 19.5zM4 5A2.5 2.5 0 0 1 6.5 3H20v2H6.5A2.5 2.5 0 0 1 4 5zM4 12A2.5 2.5 0 0 1 6.5 9.5H20v2H6.5A2.5 2.5 0 0 1 4 12z"/></svg>
+                        Education
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v0A2.5 2.5 0 0 1 9.5 7h0A2.5 2.5 0 0 1 7 4.5v0A2.5 2.5 0 0 1 9.5 2m0 5A2.5 2.5 0 0 1 12 9.5v0A2.5 2.5 0 0 1 9.5 12h0A2.5 2.5 0 0 1 7 9.5v0A2.5 2.5 0 0 1 9.5 7m5 0A2.5 2.5 0 0 1 17 9.5v0A2.5 2.5 0 0 1 14.5 12h0A2.5 2.5 0 0 1 12 9.5v0A2.5 2.5 0 0 1 14.5 7m0-5A2.5 2.5 0 0 1 17 4.5v0A2.5 2.5 0 0 1 14.5 7h0A2.5 2.5 0 0 1 12 4.5v0A2.5 2.5 0 0 1 14.5 2M8 17a2.5 2.5 0 0 1 2.5 2.5v0A2.5 2.5 0 0 1 8 22h0a2.5 2.5 0 0 1-2.5-2.5v0A2.5 2.5 0 0 1 8 17m8 0a2.5 2.5 0 0 1 2.5 2.5v0A2.5 2.5 0 0 1 16 22h0a2.5 2.5 0 0 1-2.5-2.5v0A2.5 2.5 0 0 1 16 17m-5-2.5A2.5 2.5 0 0 1 13.5 17v0A2.5 2.5 0 0 1 11 19.5h0A2.5 2.5 0 0 1 8.5 17v0A2.5 2.5 0 0 1 11 14.5m-5 0A2.5 2.5 0 0 1 8.5 17v0A2.5 2.5 0 0 1 6 19.5h0A2.5 2.5 0 0 1 3.5 17v0A2.5 2.5 0 0 1 6 14.5m12 0A2.5 2.5 0 0 1 20.5 17v0A2.5 2.5 0 0 1 18 19.5h0A2.5 2.5 0 0 1 15.5 17v0A2.5 2.5 0 0 1 18 14.5z"/></svg>
+                        AI
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Assessment
+                    </span>
+                </div>
+                <!-- <a href="#project-durbeen" class="project-link"> ... </a> -->
+            </article>
+
+            <!-- MedOCR -->
+            <article class="project-card loading">
+                <h3>MedOCR: Medical Document Text Extraction</h3>
+                <p>
+                    Developed a production-ready OCR system now deployed within the DataCare hospital management platform to 
+                    automate text extraction from medical document headers. Built on a vision-language model architecture, the 
+                    system accurately transcribes and structures text from scanned documents.
+                </p>
+                <div>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 5v14M5 12h14"/></svg>
+                        Healthcare
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        OCR
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Computer Vision
+                    </span>
+                </div>
+                <!-- <a href="#project-medocr" class="project-link"> ... </a> -->
+            </article>
+
+            <!-- DataCare EchoViz -->
+            <article class="project-card loading">
+                <h3>DataCare EchoViz</h3>
+                <p>
+                    Designed and delivered an interactive web dashboard that transforms echocardiography operational data into 
+                    clear, actionable visual reports. The application highlights procedure-time distributions, top diagnoses, 
+                    staff performance, and trend analysis with flexible date-range filtering.
+                </p>
+                <div>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 5v14M5 12h14"/></svg>
+                        Healthcare
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Data Visualization
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Dashboard
+                    </span>
+                </div>
+                <!-- <a href="#project-echoviz" class="project-link"> ... </a> -->
+            </article>
+
+            <!-- Dua Wall -->
+            <article class="project-card loading">
+                <h3>Dua Wall</h3>
+                <p>
+                    Dua Wall is a thoughtfully designed single-page experience for sending brief prayers and supportive messages 
+                    to loved ones. The interface emphasizes clarity and calm—using a responsive layout, subtle animations, and 
+                    category-driven prompts—to make composing and sharing a meaningful note quick and intuitive.
+                </p>
+                <div>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Web Design
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        UX
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        Community
+                    </span>
+                </div>
+                <!-- <a href="#project-dua-wall" class="project-link"> ... </a> -->
+            </article>
+
+            <!-- LLM CV Evaluation -->
+            <article class="project-card loading">
+                <h3>LLM-Powered CV Evaluation System</h3>
+                <p>
+                    Developed a proof-of-concept AI-driven system that uses large language models to assess resumes with 
+                    contextual understanding rather than simple keyword matching. The platform evaluates candidate profiles 
+                    through a weighted, role-specific scoring framework that captures relevance, experience depth, and skill alignment.
+                </p>
+                <div>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v0A2.5 2.5 0 0 1 9.5 7h0A2.5 2.5 0 0 1 7 4.5v0A2.5 2.5 0 0 1 9.5 2m0 5A2.5 2.5 0 0 1 12 9.5v0A2.5 2.5 0 0 1 9.5 12h0A2.5 2.5 0 0 1 7 9.5v0A2.5 2.5 0 0 1 9.5 7m5 0A2.5 2.5 0 0 1 17 9.5v0A2.5 2.5 0 0 1 14.5 12h0A2.5 2.5 0 0 1 12 9.5v0A2.5 2.5 0 0 1 14.5 7m0-5A2.5 2.5 0 0 1 17 4.5v0A2.5 2.5 0 0 1 14.5 7h0A2.5 2.5 0 0 1 12 4.5v0A2.5 2.5 0 0 1 14.5 2M8 17a2.5 2.5 0 0 1 2.5 2.5v0A2.5 2.5 0 0 1 8 22h0a2.5 2.5 0 0 1-2.5-2.5v0A2.5 2.5 0 0 1 8 17m8 0a2.5 2.5 0 0 1 2.5 2.5v0A2.5 2.5 0 0 1 16 22h0a2.5 2.5 0 0 1-2.5-2.5v0A2.5 2.5 0 0 1 16 17m-5-2.5A2.5 2.5 0 0 1 13.5 17v0A2.5 2.5 0 0 1 11 19.5h0A2.5 2.5 0 0 1 8.5 17v0A2.5 2.5 0 0 1 11 14.5m-5 0A2.5 2.5 0 0 1 8.5 17v0A2.5 2.5 0 0 1 6 19.5h0A2.5 2.5 0 0 1 3.5 17v0A2.5 2.5 0 0 1 6 14.5m12 0A2.5 2.5 0 0 1 20.5 17v0A2.5 2.5 0 0 1 18 19.5h0A2.5 2.5 0 0 1 15.5 17v0A2.5 2.5 0 0 1 18 14.5z"/></svg>
+                        AI
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        HR Tech
+                    </span>
+                    <span class="project-tag">
+                        <svg xmlns="http://www.w3.org/2s/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="tag-icon"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2zM7 7h.01"/></svg>
+                        NLP
+                    </span>
+                </div>
+                <!-- <a href="#project-cv-evaluation" class="project-link"> ... </a> -->
+            </article>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Professional Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll behavior for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.loading').forEach(el => {
+            observer.observe(el);
+        });
+
+        /* Removed the header parallax scroll effect as it can feel
+           janky and isn't a standard MD3 pattern.
+           The IntersectionObserver handles the card animations.
+        */
+
+        // Console message for developers
+        console.log('%c👋 Welcome to the Portfolio!', 'color: #a8c7ff; font-size: 16px; font-weight: bold;');
+        console.log('%cThis portfolio is styled with Material Design 3 (Dark Mode).', 'color: #c2c6cf; font-size: 12px;');
+    </script>
+</body>
+</html>
+
+
+
+
+
