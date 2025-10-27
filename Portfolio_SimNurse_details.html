@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMNURSE Project Brief</title>
+    <!-- Import Roboto font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* * UI STYLE GUIDE (Based on portfolio_project_briefs.html)
+         * Framework: Material Design 3 (Dark Mode)
+         */
+
+        :root {
+            /* 2. Color Palette */
+            /* Primary Colors (The "Blue" Accent) */
+            --md-sys-color-primary: #a8c7ff;
+            --md-sys-color-on-primary: #00325b;
+            --md-sys-color-primary-container: #004880;
+            --md-sys-color-on-primary-container: #d3e4ff;
+            --md-sys-color-primary-rgb: 168, 199, 255;
+
+            /* Surface & Background (The "Dark" Base) */
+            --md-sys-color-background: #1a1c1e;
+            --md-sys-color-on-background: #e2e2e6;
+            --md-sys-color-surface: #1a1c1e;
+            --md-sys-color-on-surface: #e2e2e6;
+            --md-sys-color-on-surface-variant: #c2c6cf;
+
+            /* Component Containers */
+            --md-sys-color-surface-container-low: #1f2428;
+            --md-sys-color-surface-container: #22262a;
+            --md-sys-color-surface-container-high: #2d3135;
+
+            /* Outlines & Borders */
+            --md-sys-color-outline: #8d9199;
+            --md-sys-color-outline-variant: #42474e;
+
+            /* Elevation Shadows (Based on MD3) */
+            --md-sys-elevation-level-1: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+            --md-sys-elevation-level-2: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--md-sys-color-background);
+            color: var(--md-sys-color-on-background);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* 5. Core Components - Header */
+        header {
+            background: var(--md-sys-color-surface);
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            text-align: center;
+            padding: 3rem 2rem 2rem 2rem;
+        }
+
+        /* 3. Typography - Headlines */
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--md-sys-color-primary);
+            margin: 0 0 0.5rem 0;
+        }
+
+        /* 3. Typography - Titles */
+        header p {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--md-sys-color-on-surface-variant);
+            margin: 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* 4. Layout - Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Spacing between content sections */
+        main > section {
+            margin-bottom: 2rem;
+        }
+
+        /* 5. Core Components - Cards (.summary-section) */
+        .summary-section {
+            border-radius: 16px;
+            background: var(--md-sys-color-surface-container);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            padding: 1.5rem 2rem;
+        }
+
+        /* 3. Typography - Titles */
+        .summary-section h2 {
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: var(--md-sys-color-on-surface);
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* 3. Typography - Body */
+        .summary-section p {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 0.5rem;
+        }
+
+        /* 5. Core Components - Cards (.project-card) */
+        /* Used here for the "Key Features" section to make it stand out */
+        .project-card {
+            border-radius: 16px;
+            background-color: var(--md-sys-color-surface-container-high);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            padding: 1.5rem 2rem;
+            
+            /* Elevation (Surface Tint) */
+            background-image: linear-gradient(rgba(var(--md-sys-color-primary-rgb), 0.08), rgba(var(--md-sys-color-primary-rgb), 0.08));
+            box-shadow: var(--md-sys-elevation-level-1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .project-card:hover {
+            background-image: linear-gradient(rgba(var(--md-sys-color-primary-rgb), 0.12), rgba(var(--md-sys-color-primary-rgb), 0.12));
+            box-shadow: var(--md-sys-elevation-level-2);
+            border-color: var(--md-sys-color-outline);
+        }
+
+        /* 3. Typography - Titles */
+        .project-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--md-sys-color-on-surface);
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Custom list styling for features */
+        .project-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .project-card li {
+            position: relative;
+            padding-left: 30px; /* Space for icon */
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .project-card li::before {
+            content: '✓'; /* Checkmark icon */
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--md-sys-color-primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .project-card li strong {
+            font-weight: 600;
+            color: var(--md-sys-color-on-surface);
+            display: block; /* Makes the title pop */
+            margin-bottom: 0.25rem;
+        }
+
+
+        /* 5. Core Components - Tags / Chips */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem; /* 12px */
+            margin-bottom: 2rem;
+        }
+
+        .project-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem; /* 8px */
+            border-radius: 8px;
+            padding: 0.5rem 1rem; /* 8px 16px */
+            
+            background-color: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+            
+            /* 3. Typography - Labels */
+            font-size: 0.875rem;
+            font-weight: 500;
+            
+            transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+            cursor: default;
+        }
+
+        .project-tag:hover {
+            transform: scale(1.05);
+            background-color: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+        }
+
+        .tag-icon {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            flex-shrink: 0; /* Prevents icon from shrinking */
+        }
+
+        /* Footer */
+        footer {
+            background: var(--md-sys-color-surface-container-low);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>SIMNURSE</h1>
+        <p>A Comprehensive Medical Training Simulation System</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Tags -->
+        <section class="tags-container">
+            <span class="project-tag">
+                <!-- SVG Icon based on style guide spec -->
+                <svg class="tag-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                </svg>
+                Godot Engine
+            </span>
+            <span class="project-tag">
+                <svg class="tag-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                </svg>
+                Medical Training
+            </span>
+            <span class="project-tag">
+                <svg class="tag-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                </svg>
+                Simulation
+            </span>
+            <span class="project-tag">
+                <svg class="tag-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                </svg>
+                API Integration
+            </span>
+        </section>
+
+        <!-- Executive Summary (Styled as .summary-section) -->
+        <section class="summary-section">
+            <h2>EXECUTIVE SUMMARY</h2>
+            <p>This project is a comprehensive medical training simulation system designed for interactive, scenario-based learning in emergency medicine. It focuses on cases like bradycardia, tachycardia, and PALS, providing a realistic environment for healthcare professionals to practice and assess their skills. The system features dynamic scenario generation, real-time patient monitoring, user authentication, and performance tracking, all built within a modular and scalable architecture using the Godot Engine. The simulation integrates with an external API for user management and data reporting.</p>
+        </section>
+
+        <!-- Key Features (Styled as .project-card for emphasis) -->
+        <section class="project-card">
+            <h3>Key Features</h3>
+            <ul>
+                <li>
+                    <strong>Dynamic Scenario Creation:</strong>
+                    Randomization of patient vitals and conditions for varied training experiences.
+                </li>
+                <li>
+                    <strong>Modular Design:</strong>
+                    Separation of concerns with distinct scripts for authentication, scenario selection, simulation, and monitoring.
+                </li>
+                <li>
+                    <strong>Global Data Management:</strong>
+                    Extensive use of `GlobalVar` for consistent data tracking across scenes.
+                </li>
+                <li>
+                    <strong>API Integration:</strong>
+                    External API for user authentication and performance tracking.
+                </li>
+                <li>
+                    <strong>Real-Time Feedback:</strong>
+                    Immediate feedback on user actions, including error messages and progress updates.
+                </li>
+                <li>
+                    <strong>Realistic Simulation:</strong>
+                    ECG wave generation, dynamic vital sign updates, and scenario-based logic enhance realism.
+                </li>
+            </ul>
+        </section>
+
+        <!-- Conclusion (Styled as .summary-section) -->
+        <section class="summary-section">
+            <h2>Conclusion</h2>
+            <p>This system provides a robust and interactive platform for medical training, combining dynamic scenario generation, real-time monitoring, and comprehensive feedback mechanisms. Its modular architecture and use of global variables ensure scalability and consistency, while API integration and realistic simulations enhance user engagement and learning outcomes. The project is well-suited for training healthcare professionals in emergency medical scenarios, offering a valuable tool for skill development and assessment.</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>SIMNURSE Project Brief | Document styled with MD3 Dark Theme</p>
+    </footer>
+
+</body>
+</html>
