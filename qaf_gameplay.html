@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QAF - Gameplay Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .home-section {
+            background: #121828;
+            border-bottom: 1px solid #242447;
+            padding: 1rem 2rem;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #eaeaea;
+            font-size: 1.125rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .home-button:hover {
+            color: #00f0ff;
+        }
+
+        .home-icon {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        .site-footer {
+            background: #121828;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            color: rgba(234, 234, 234, 0.7);
+            font-size: 0.9rem;
+            border-top: 1px solid #242447;
+        }
+    </style>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00f0ff",
+                        "background-light": "#e8e0d4",
+                        "background-dark": "#1a1a1a",
+                        "accent-gold": "#ffd700",
+                        "accent-purple": "#8a2be2",
+                        "surface-dark": "#1b1c3a",
+                        "text-light": "#e8e0d4"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-dark font-display">
+<div class="home-section">
+    <a href="index.html" class="home-button">
+        <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        Irfan Kheiri
+    </a>
+</div>
+<div class="relative flex h-auto min-h-screen w-full flex-col text-text-light group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#242447] bg-surface-dark/80 px-4 sm:px-10 py-3 backdrop-blur-sm">
+<div class="flex items-center gap-4 text-text-light">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-text-light text-lg font-bold leading-tight tracking-[-0.015em]">
+<a href="qaf_main.html" class="hover:text-primary transition-colors">QAF</a>
+</h2>
+</div>
+<div class="flex flex-1 flex-wrap justify-end gap-4 text-sm font-medium leading-normal md:gap-8 md:text-base">
+<a class="text-text-light hover:text-primary transition-colors" href="qaf_lore.html">Lore</a>
+<a class="text-text-light hover:text-primary transition-colors" href="qaf_gameplay.html">Gameplay</a>
+</div>
+</header>
+<main class="flex-1 px-4 sm:px-10 md:px-20 lg:px-40 flex justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<div class="@container">
+<div class="@[480px]:p-4">
+<div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4" data-alt="A warrior stands silhouetted against a mystical, mountainous landscape under a twilight sky." style='background-image: linear-gradient(rgba(27, 28, 58, 0.6) 0%, rgba(26, 26, 26, 0.8) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBbnG8F9jPrtbJns_u9XrOTUgG1QPMVsBcjJp3iGsOEwR5Q3U6qMZUCdXCeDzYD9kmLsJn2ejAqlb3q7owU4B6_NDc4DU0U4cfhLu4NcezJ29a9gdeBs1rLbc6fksRPYzmIjc9NeSk8poVjN_gsJ9kN_Cvy2I3rnx6ArDh06-oJcV6EiYVs0CO74U3r8s_wZWEtDGv2Kcwt4wa_VEv8P22utGAlf0CuqqcFZTsA4IdX6OR4b6qpOGJ4q5TYWZ79eeXKly0uPDsfGZ7l");'>
+<div class="flex flex-col gap-2 text-center">
+<h1 class="text-text-light text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">Gameplay Overview</h1>
+<h2 class="text-text-light text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal max-w-xl">Navigate the treacherous ascent of Mount Qaf, master forbidden arts, and forge your destiny word by word.</h2>
+</div>
+</div>
+</div>
+</div>
+<section id="combat">
+<h2 class="text-text-light text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-10">The Basics: Movement &amp; Combat</h2>
+<div class="flex flex-col gap-10 px-4 py-10 @container">
+<div class="flex flex-col gap-4">
+<h3 class="text-text-light tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">Core Actions and Offense</h3>
+<p class="text-text-light/80 text-base font-normal leading-normal max-w-[720px]">Master fluid movement and devastating attacks to survive the perils of Mount Qaf. Your agility and combat prowess are your greatest assets.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="flex flex-col gap-3 pb-3 bg-surface-dark/50 p-4 rounded-lg">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="Abstract image of a character leaping across a chasm." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDnszJgawJLcyEtARgB-6UYFGv0-m8E5ddIvyW4iAmVDnEuBstda_a4zf5PN68sJaJyiyGQ8EaUqQytlwyvNBp7E1hPWgUegK9OOvJPeRbFJHR6suY73d2rjt3RNy2xOfv6LaOgtzYxCk2Qr1ABL0IHDWqpun8eAgu_RFrHsocCApsX-7P2zHLK4bFd2WAO7pwvDyUO28TCy8SfhuTtuKnZatP5KOX9LIpirJgSinwkkN8YreqOdEHEsQjWPqopOsn1m8_FhomPl0tj");'></div>
+<div>
+<p class="text-text-light text-base font-medium leading-normal">Movement</p>
+<p class="text-text-light/70 text-sm font-normal leading-normal">Effortlessly run, dash, jump, vault, and climb through dynamic environments.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 bg-surface-dark/50 p-4 rounded-lg">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="Abstract image of a sword clashing with an enemy, creating sparks." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCxNl8NTI_g-hpWTxHBIIGJFOri0IVDPAqcb2W16D8TQ-aNA-OzSpEA_WfFxgK00PRcQcz95gmDJE86FvEhnBYmYE3I7aKABYZin-bG_wqtlc1e64l3mqpyKyNEmA6hmKpBfwOmDg-ml_ckXm7V9iK68tX1IuRSJmcb3PPaKMgR0mrHuZqJg91F6FUY_L3DCOgZRDsEuB9cdOqC3ug9Mzt-D3j4buUhiferJWDzQ7y8fgC5aAQqDaXfQNtDrcvQ59BAGnI2ZvMRTvWy");'></div>
+<div>
+<p class="text-text-light text-base font-medium leading-normal">Basic Attacks</p>
+<p class="text-text-light/70 text-sm font-normal leading-normal">Unleash swift strikes and powerful special attacks to vanquish your foes.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 bg-surface-dark/50 p-4 rounded-lg">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="Abstract image of multiple glowing weapons." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBAV-S-ssupDl0DyZXUN9R7KUtUyszYUqLxLhIOBQdFJ0mSQOjq0ehcYW6ErTqN0aX98xsz1I8hxssh-rlAkM8kbGS4pNo4jn80emFMkyPtSrXMlDuyCI-69PokiDOAFjt_5DURPontbMRFFILfHJDWX16RkzwPigNx4sPa026k2vk0COD4Dk7T6nJh-ktoSvDPQcVssvTm6dDzRL5nJDqBZafq0XVtzSuhHQG_X2GuFS0hGedLqsmK7IlmSARSjhNXI3wYqSvQ93mv");'></div>
+<div>
+<p class="text-text-light text-base font-medium leading-normal">Weapon Combos</p>
+<p class="text-text-light/70 text-sm font-normal leading-normal">Each of the five weapon types offers unique combos and elemental properties.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 bg-surface-dark/50 p-4 rounded-lg">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="Abstract image of a mystical glowing eye." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB79CYddHRACet6ZEpEsFd3_60-dB-ivWtP0Qd-XAcIffW-T08XhYcxq7-NkpkJmlQ3BDbWBzkPczH3ZgZFiJr3X5Ws6TVGbv-dE3aNCvJiNZbVf6NGGje8uXZy64sWlsGj2cD7n3UhoW8ty_nJXtKRHJCg313-0Md9NvMMVDIKrgAVVnV3WZVFA5HCi8EPje2JJMVum8fkWK-jhkrssxRymmsGbUN6m9W8CirucoBE7QhL4W55VpnOc7rBMEYSLg-AVp7-YpukK9YZ");'></div>
+<div>
+<p class="text-text-light text-base font-medium leading-normal">The Evil-eye Companion</p>
+<p class="text-text-light/70 text-sm font-normal leading-normal">Your mystical companion aids you with unique, upgradeable abilities.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="arsenal">
+<h2 class="text-text-light text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Arsenal of Qaf: Weapons &amp; Equipment</h2>
+<div class="grid md:grid-cols-2 gap-8 px-4 py-10">
+<div class="flex flex-col gap-4">
+<h3 class="text-text-light text-xl font-bold">Weapon Types &amp; Rarities</h3>
+<p class="text-text-light/80 text-base">Discover 5 unique weapon types, each with their own move sets and elemental affinities. Weapons come in various rarities, from common to legendary, affecting their base power and potential enchantments.</p>
+<div class="grid grid-cols-3 gap-4 text-center">
+<div class="p-4 bg-surface-dark/50 rounded-lg flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-accent-gold text-4xl">swords</span>
+<span class="text-sm">Blades</span>
+</div>
+<div class="p-4 bg-surface-dark/50 rounded-lg flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-accent-gold text-4xl">gavel</span>
+<span class="text-sm">Hammers</span>
+</div>
+<div class="p-4 bg-surface-dark/50 rounded-lg flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-accent-gold text-4xl">double_arrow</span>
+<span class="text-sm">Bows</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="text-text-light text-xl font-bold">Equipment &amp; Armor</h3>
+<p class="text-text-light/80 text-base">Equip Rings, Amulets, and Belts to gain passive bonuses. A single Armor slot provides crucial defense and can grant powerful set bonuses, including the fabled Lost Armaments of Al-Harith.</p>
+<div class="grid grid-cols-3 gap-4 text-center">
+<div class="p-4 bg-surface-dark/50 rounded-lg flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-accent-purple text-4xl">diamond</span>
+<span class="text-sm">Amulet</span>
+</div>
+<div class="p-4 bg-surface-dark/50 rounded-lg flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-accent-purple text-4xl">apparel</span>
+<span class="text-sm">Armor</span>
+</div>
+<div class="p-4 bg-surface-dark/50 rounded-lg flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-accent-purple text-4xl">shield</span>
+<span class="text-sm">Belt</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="power">
+<h2 class="text-text-light text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Harnessing Power: Health, Abilities &amp; The Letters</h2>
+<div class="flex flex-col gap-10 px-4 py-10">
+<div class="grid md:grid-cols-2 gap-8 items-start">
+<div class="flex flex-col gap-4">
+<h3 class="text-text-light text-xl font-bold">Health &amp; Marij</h3>
+<p class="text-text-light/80 text-base">Your life force, Marij, is both your health and your resource. Regenerate it by collecting fragments from fallen foes, but spend it wisely to fuel powerful abilities and agile movements. A dangerous balance must be struck.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="text-text-light text-xl font-bold">The Letters System</h3>
+<p class="text-text-light/80 text-base">The core of your power lies in ancient Letters. Equip them into your grimoire to form words and phrases, unlocking and customizing your active abilities. Experimentation is key to discovering the most potent combinations.</p>
+</div>
+</div>
+<div class="p-6 bg-surface-dark/50 rounded-lg">
+<h3 class="text-text-light text-xl font-bold mb-4">Abilities: The Six Sigil Categories</h3>
+<p class="text-text-light/80 text-base mb-6">Master six distinct categories of sigils, each tied to a different aspect of mystical power. Your chosen sigils, empowered by the Letters you equip, define your combat style.</p>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+<div class="p-3 bg-background-dark rounded-lg flex flex-col items-center gap-2 border border-primary/50">
+<span class="material-symbols-outlined text-primary text-3xl">local_fire_department</span>
+<span class="text-sm font-bold">Nafs</span>
+<span class="text-xs text-text-light/70">Fire</span>
+</div>
+<div class="p-3 bg-background-dark rounded-lg flex flex-col items-center gap-2 border border-primary/50">
+<span class="material-symbols-outlined text-primary text-3xl">air</span>
+<span class="text-sm font-bold">Simoom</span>
+<span class="text-xs text-text-light/70">Wind</span>
+</div>
+<div class="p-3 bg-background-dark rounded-lg flex flex-col items-center gap-2 border border-primary/50">
+<span class="material-symbols-outlined text-primary text-3xl">bolt</span>
+<span class="text-sm font-bold">Tahawwul</span>
+<span class="text-xs text-text-light/70">Lightning</span>
+</div>
+<div class="p-3 bg-background-dark rounded-lg flex flex-col items-center gap-2 border border-primary/50">
+<span class="material-symbols-outlined text-primary text-3xl">ac_unit</span>
+<span class="text-sm font-bold">Mas</span>
+<span class="text-xs text-text-light/70">Ice</span>
+</div>
+<div class="p-3 bg-background-dark rounded-lg flex flex-col items-center gap-2 border border-primary/50">
+<span class="material-symbols-outlined text-primary text-3xl">clear_day</span>
+<span class="text-sm font-bold">Nagahan</span>
+<span class="text-xs text-text-light/70">Light</span>
+</div>
+<div class="p-3 bg-background-dark rounded-lg flex flex-col items-center gap-2 border border-primary/50">
+<span class="material-symbols-outlined text-primary text-3xl">dark_mode</span>
+<span class="text-sm font-bold">Nida</span>
+<span class="text-xs text-text-light/70">Shadow</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="progression">
+<h2 class="text-text-light text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">The Ascent: Dungeons, Death &amp; Progression</h2>
+<div class="flex flex-col gap-10 px-4 py-10">
+<div class="flex flex-col gap-4">
+<h3 class="text-text-light tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">The Cycle of Ascent</h3>
+<p class="text-text-light/80 text-base font-normal leading-normal max-w-[720px]">Death is not the end, but a lesson. Each run through the procedurally generated dungeons of Mount Qaf offers new challenges, resources, and opportunities to grow stronger for the next attempt.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="flex flex-col gap-3 pb-3 bg-surface-dark/50 p-4 rounded-lg">
+<h4 class="font-bold text-lg text-text-light">Dungeons &amp; Bosses</h4>
+<p class="text-text-light/70 text-sm">Traverse four tiers of randomly generated platforms, facing minibosses and a final, formidable boss in each. No two climbs are ever the same.</p>
+</div>
+<div class="flex flex-col gap-3 pb-3 bg-surface-dark/50 p-4 rounded-lg">
+<h4 class="font-bold text-lg text-text-light">Currencies &amp; Resources</h4>
+<p class="text-text-light/70 text-sm">Gather various currencies to purchase temporary boons, unlock permanent upgrades, and craft powerful gear between your attempts.</p>
+</div>
+<div class="flex flex-col gap-3 pb-3 bg-surface-dark/50 p-4 rounded-lg">
+<h4 class="font-bold text-lg text-text-light">Bones &amp; Transfusions</h4>
+<p class="text-text-light/70 text-sm">Collect the Bones of fallen warriors. Consume them for a burst of power or equip them for lasting effects. Transfuse Souls to unlock powerful meta-progression.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="cosmic">
+<h2 class="text-text-light text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Cosmic Influence: Planetary Alignments</h2>
+<div class="flex flex-col md:flex-row gap-8 items-center px-4 py-10 bg-surface-dark/50 rounded-lg">
+<div class="flex-shrink-0 grid grid-cols-4 gap-2">
+<span class="material-symbols-outlined text-4xl text-accent-gold">public</span>
+<span class="material-symbols-outlined text-4xl text-accent-gold">wb_sunny</span>
+<span class="material-symbols-outlined text-4xl text-accent-gold">nightlight</span>
+<span class="material-symbols-outlined text-4xl text-accent-gold">rocket_launch</span>
+<span class="material-symbols-outlined text-4xl text-accent-gold">flare</span>
+<span class="material-symbols-outlined text-4xl text-accent-gold">satellite_alt</span>
+<span class="material-symbols-outlined text-4xl text-accent-gold">mode_of_travel</span>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="text-text-light text-xl font-bold">The Jinn Kings' Favor</h3>
+<p class="text-text-light/80 text-base">The seven planets are ruled by seven Jinn kings. At the start of each run, the heavens align, granting you boons based on which kings are dominant. Slot their cosmic sigils into major and minor slots to dramatically alter your abilities and gameplay for that ascent.</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<footer class="site-footer">
+    <p>&copy; Irfan Kheiri</p>
+</footer>
+</div>
+</div>
+</body></html>
