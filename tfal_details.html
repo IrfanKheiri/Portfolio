@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFAL - Tales From Another Land</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --md-sys-color-primary: #a8c7ff;
+            --md-sys-color-on-primary: #00325b;
+            --md-sys-color-primary-container: #004880;
+            --md-sys-color-on-primary-container: #d3e4ff;
+            --md-sys-color-background: #1a1c1e;
+            --md-sys-color-on-background: #e2e2e6;
+            --md-sys-color-surface: #1a1c1e;
+            --md-sys-color-on-surface: #e2e2e6;
+            --md-sys-color-on-surface-variant: #c2c6cf;
+            --md-sys-color-surface-container-low: #1f2428;
+            --md-sys-color-outline-variant: #42474e;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--md-sys-color-background);
+            color: var(--md-sys-color-on-background);
+            margin: 0;
+            padding: 0;
+        }
+
+        .home-section {
+            background: var(--md-sys-color-surface);
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            padding: 1rem 2rem;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--md-sys-color-on-surface);
+            font-size: 1.125rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .home-button:hover {
+            color: var(--md-sys-color-primary);
+        }
+
+        .home-icon {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        header {
+            background: var(--md-sys-color-surface);
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            text-align: center;
+            padding: 3rem 2rem 2rem 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--md-sys-color-primary);
+            margin: 0 0 0.5rem 0;
+        }
+
+        header p {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--md-sys-color-on-surface-variant);
+            margin: 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .title-image-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 2rem auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .title-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        footer {
+            background: var(--md-sys-color-surface-container-low);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="home-section">
+        <a href="index.html" class="home-button">
+            <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Irfan Kheiri
+        </a>
+    </div>
+
+    <header>
+        <h1>TFAL</h1>
+        <h2 class="subtitle">A MONEY LAUNDERING<br>INVESTIGATION</h2>
+        <div class="description">
+            <p>TFAL is an interactive game designed to educate beginners<br>
+            about the intricacies of anti-money laundering (AML)<br>
+            practices.</p>
+            <p>Players take on the role of an AML investigator tasked with<br>
+            unraveling a complex money laundering scheme involving the<br>
+            use of GOLD.</p>
+        </div>
+    </header>
+
+    <style>
+        header h2.subtitle {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--md-sys-color-on-surface);
+            margin: 1rem 0;
+            line-height: 1.2;
+        }
+        
+        header .description {
+            margin-top: 2rem;
+        }
+        
+        header .description p {
+            font-size: 1.125rem;
+            line-height: 1.5;
+            margin: 1rem 0;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+    </style>
+
+    <main class="container">
+        <div class="title-image-container">
+            <img src="images/TFALtitle.jpg" alt="TFAL Title Image" class="title-image">
+        </div>
+
+        <div class="video-container">
+            <video controls>
+                <source src="videos/TFALIntromain.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Irfan Kheiri</p>
+    </footer>
+</body>
+</html>
