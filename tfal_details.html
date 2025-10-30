@@ -146,12 +146,10 @@
         <h1>TFAL</h1>
         <h2 class="subtitle">A MONEY LAUNDERING<br>INVESTIGATION</h2>
         <div class="description">
-            <p>TFAL is an interactive game designed to educate beginners<br>
-            about the intricacies of anti-money laundering (AML)<br>
-            practices.</p>
-            <p>Players take on the role of an AML investigator tasked with<br>
-            unraveling a complex money laundering scheme involving the<br>
-            use of GOLD.</p>
+            <div class="text-wrapper">
+                <p>TFAL is an interactive game designed to educate beginners about the intricacies of anti-money laundering (AML) practices.</p>
+                <p>Players take on the role of an AML investigator tasked with unraveling a complex money laundering scheme involving the use of GOLD.</p>
+            </div>
         </div>
     </header>
 
@@ -162,17 +160,31 @@
             color: var(--md-sys-color-on-surface);
             margin: 1rem 0;
             line-height: 1.2;
+            text-align: center;
         }
         
         header .description {
             margin-top: 2rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        header .description .text-wrapper {
+            max-width: 850px;
+            width: 100%;
+            padding: 0 1rem;
         }
         
         header .description p {
-            font-size: 1.125rem;
-            line-height: 1.5;
-            margin: 1rem 0;
-            color: var(--md-sys-color-on-surface-variant);
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin: 1.5rem 0;
+            color: var(--md-sys-color-on-surface);
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 
