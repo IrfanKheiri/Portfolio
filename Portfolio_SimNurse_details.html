@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <style>
         /* * UI STYLE GUIDE (Based on portfolio_project_briefs.html)
          * Framework: Material Design 3 (Dark Mode)
@@ -83,7 +83,7 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         /* 4. Layout - Container */
         .container {
             max-width: 1200px;
@@ -128,7 +128,7 @@
             background-color: var(--md-sys-color-surface-container-high);
             border: 1px solid var(--md-sys-color-outline-variant);
             padding: 1.5rem 2rem;
-            
+
             /* Elevation (Surface Tint) */
             background-image: linear-gradient(rgba(var(--md-sys-color-primary-rgb), 0.08), rgba(var(--md-sys-color-primary-rgb), 0.08));
             box-shadow: var(--md-sys-elevation-level-1);
@@ -149,7 +149,7 @@
             margin-top: 0.5rem;
             margin-bottom: 1.5rem;
         }
-        
+
         /* Custom list styling for features */
         .project-card ul {
             list-style: none;
@@ -198,14 +198,14 @@
             gap: 0.5rem; /* 8px */
             border-radius: 8px;
             padding: 0.5rem 1rem; /* 8px 16px */
-            
+
             background-color: var(--md-sys-color-primary-container);
             color: var(--md-sys-color-on-primary-container);
-            
+
             /* 3. Typography - Labels */
             font-size: 0.875rem;
             font-weight: 500;
-            
+
             transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
             cursor: default;
         }
@@ -224,6 +224,35 @@
             flex-shrink: 0; /* Prevents icon from shrinking */
         }
 
+        /* Home Button Section */
+        .home-section {
+            background: var(--md-sys-color-surface);
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+            padding: 1rem 2rem;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--md-sys-color-on-surface);
+            font-size: 1.125rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .home-button:hover {
+            color: var(--md-sys-color-primary);
+        }
+
+        .home-icon {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
         /* Footer */
         footer {
             background: var(--md-sys-color-surface-container-low);
@@ -234,9 +263,32 @@
             font-size: 0.9rem;
         }
 
+        /* Images Section */
+        .images-section {
+            margin-top: 2rem;
+        }
+
+        .images-section img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--md-sys-color-outline-variant);
+            margin-bottom: 1.5rem;
+        }
+
     </style>
 </head>
 <body>
+
+    <!-- Home Button Section -->
+    <div class="home-section">
+        <a href="index.html" class="home-button">
+            <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Irfan Kheiri
+        </a>
+    </div>
 
     <!-- Header -->
     <header>
@@ -319,13 +371,18 @@
             <p>This system provides a robust and interactive platform for medical training, combining dynamic scenario generation, real-time monitoring, and comprehensive feedback mechanisms. Its modular architecture ensure scalability and consistency, while API integration and realistic simulations enhance user engagement and learning outcomes. The project is well-suited for training healthcare professionals in emergency medical scenarios, offering a valuable tool for skill development and assessment.</p>
         </section>
 
+        <!-- Images Section -->
+        <section class="images-section">
+            <img src="images/SimNurse_01.png" alt="SimNurse Screenshot 1">
+            <img src="images/SimNurse_02.png" alt="SimNurse Screenshot 2">
+        </section>
+
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>SIMNURSE Project Brief | Document styled with MD3 Dark Theme</p>
+        <p>&copy; Irfan Kheiri</p>
     </footer>
 
 </body>
 </html>
-
